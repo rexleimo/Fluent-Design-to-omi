@@ -1,0 +1,33 @@
+.o-check {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    label {
+        cursor: pointer;
+    }
+    .o-check__int {
+        position: absolute;
+        opacity: 0;
+    }
+    &__area {
+        display: inline-block;
+        vertical-align: middle;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        background-color: #fff;
+        border: 1px solid #888888;
+    }
+    &__bd {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+    .checked {
+        background-color: royalblue;
+        color: #fff;
+        user-select: none;
+    }
+}
