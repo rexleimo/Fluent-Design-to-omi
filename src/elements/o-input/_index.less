@@ -21,14 +21,34 @@
         line-height: 30px;
         text-align: center;
         vertical-align: middle;
-        font-size: 12px;
+        font-size: 14px;
         padding-left: 5px;
         padding-right: 5px;
     }
     &__left_icon {
-        border-right: 1px solid #ccc;
+        position: relative;
+        z-index: 1;
+        &::after {
+            position: absolute;
+            right: 0px;
+            content: '';
+            border-right: 1px solid #ccc;
+            z-index: -1;
+            height: 100%;
+            top: -1px;
+        }
     }
     &__right_icon {
-        border-left: 1px solid #ccc;
+        position: relative;
+        z-index: 1;
+        &::after {
+            position: absolute;
+            left: 0px;
+            content: '';
+            border-left: 1px solid #ccc;
+            z-index: -1;
+            height: 100%;
+            top: -1px;
+        }
     }
 }

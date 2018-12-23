@@ -33,7 +33,7 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
         return {
             abc: '',
             passToChild: 'from parent',
-            checkbox: true,
+            checkbox: false,
             defaultValue: [1, 2, 3]
         };
     }
@@ -77,7 +77,7 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
                 </div>
 
                 <div style={{ marginTop: 10 }}>
-                    <o-select></o-select>
+                    <o-select option={[1, 2, 3, 4]}></o-select>
                 </div>
 
                 <div class="test">
