@@ -6,7 +6,8 @@ import '../o-icon';
 interface IProps {
     key?: string,
     value: string,
-    onclick: (e) => void
+    checked?: boolean,
+    onclick?: (e) => void
 }
 
 declare global {
@@ -20,7 +21,17 @@ declare global {
 @tag('o-option')
 export default class OSelect extends WeElement<IProps, {}> {
 
-    css(){
+    static observe = false;
+
+    data = {
+        checked: false
+    };
+
+    install() {
+        this.data.checked = this.props.checked || false;
+    }
+
+    css() {
         return css;
     }
 
@@ -28,9 +39,13 @@ export default class OSelect extends WeElement<IProps, {}> {
         return [
             <div class="o-select__dropdownMenu_option">
                 {props.children}
-                <span class="o-option__selected">
-                    <o-icon name="icon-check" />
-                </span>
+                {
+                    data.checked &&
+                    <span class="o-option__selected">
+                        <o-icon name="icon-check" />
+                    </span>
+                }
+
             </div>
         ];
     }

@@ -77,7 +77,9 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
                 </div>
 
                 <div style={{ marginTop: 10 }}>
-                    <o-select option={[1, 2, 3, 4]}></o-select>
+                    <o-select>
+                        <o-option value="1">1</o-option>
+                    </o-select>
                 </div>
 
                 <div class="test">
