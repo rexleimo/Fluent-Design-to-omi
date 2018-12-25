@@ -5,7 +5,11 @@
         "jsx": "react",
         "jsxFactory": "h",
         "target": "es5",
-        "outDir": "dist"
+        "outDir": "dist",
+        "lib": [
+            "dom",
+            "es2015"
+        ]
     },
     "include": [
         "src/**/*"
