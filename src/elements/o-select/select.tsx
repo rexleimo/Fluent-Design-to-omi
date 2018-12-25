@@ -44,15 +44,21 @@ export default class OSelect extends WeElement<IProps> {
             var attributes = element.attributes;
             optionAddrry.push(attributes.value);
         });
-
     }
 
-    handleIconClick = () => {
+    installed() {
+        document.addEventListener('click', () => {
+            this.data.active = false;
+        });
+    }
+
+    handleIconClick = (evt: Event) => {
+        evt.stopPropagation();
         this.data.active = true;
     }
 
-    handleOptionClick(e) {
-
+    handleOptionClick(e, evt: Event) {
+        evt.stopPropagation();
         let { selectedArray, multiple } = this.data;
         if (multiple) {
             var index = selectedArray.indexOf(e);
@@ -70,7 +76,6 @@ export default class OSelect extends WeElement<IProps> {
             selectedArray = [];
             selectedArray.push(e);
             this.data.selectedArray = selectedArray;
-
         }
 
     }
@@ -89,6 +94,7 @@ export default class OSelect extends WeElement<IProps> {
     }
 
     renderOption() {
+
         let { children } = this.props;
         let { optionAddrry } = this.data;
         var c: any = children;
