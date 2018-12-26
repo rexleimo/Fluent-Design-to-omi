@@ -78,10 +78,10 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
 
                 <div style={{ marginTop: 10 }}>
                     <o-select multiple={true}>
-                        <o-option value="1">1</o-option>
-                        <o-option value="2">2</o-option>
-                        <o-option value="3">3</o-option>
-                        <o-option value="4">4</o-option>
+                        <o-option value="1">select1</o-option>
+                        <o-option value="2">select2</o-option>
+                        <o-option value="3">select3</o-option>
+                        <o-option value="4">select4</o-option>
                     </o-select>
                 </div>
 

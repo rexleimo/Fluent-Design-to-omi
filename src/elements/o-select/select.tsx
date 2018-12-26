@@ -2,7 +2,7 @@ import { WeElement, render, h, tag, getHost } from 'omi';
 import * as css from './_index.less';
 import classnames from 'classnames';
 import '../o-icon';
-
+import '../o-tag';
 
 interface IProps {
     multiple?: boolean,
@@ -42,7 +42,10 @@ export default class OSelect extends WeElement<IProps> {
 
         c.forEach(element => {
             var attributes = element.attributes;
-            optionAddrry.push(attributes.value);
+            optionAddrry.push({
+                key: attributes.value,
+                vnode: element.children
+            });
         });
     }
 
@@ -83,8 +86,17 @@ export default class OSelect extends WeElement<IProps> {
     renderInputContent() {
         const { selectedArray, multiple, optionAddrry } = this.data;
         if (multiple) {
-            return selectedArray.map(item => {
-                return <span>{item}</span>
+            var tags = [];
+            selectedArray.forEach(item => {
+                optionAddrry.forEach(i => {
+                    if (item == i.key) {
+                        tags.push(i.vnode);
+                    }
+                })
+            })
+
+            return tags.map(item => {
+                return <o-tag>{item}</o-tag>
             });
 
         } else {
