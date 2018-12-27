@@ -1,7 +1,11 @@
 import { WeElement, render, h, getHost, tag } from 'omi';
+import classnames from 'classnames';
 import * as css from './_index.less';
+import '../o-icon';
 
-interface IProps { }
+interface IProps {
+    onclose?: (e: any) => void
+}
 
 
 declare global {
@@ -16,14 +20,26 @@ declare global {
 export default class OTag extends WeElement<IProps, {}> {
 
     css() {
-        return getHost(this).css() + css;
+        var result = getHost(this).css();
+        return result != undefined ? getHost(this).css() + css : css;
     }
 
-    render() {
+    handleClick(e: Event) {
+        e.stopPropagation();
+        var target = e.target as HTMLDocument;
+        var parentNode = target.parentNode.parentNode as any;
+        parentNode.remove();
+        this.props.onclose(e);
+    }
+
+    render(props) {
         const { children } = this.props;
         return [
-            <div class="o-tag">
+            <div class={classnames('o-tag', props.onclose ? 'o-tag__close' : '')}>
                 {children}
+                <span class="o-tag__closeBtn" onClick={this.handleClick.bind(this)}>
+                    {props.onclose && <o-icon name="icon-close_light" />}
+                </span>
             </div>
         ];
     }

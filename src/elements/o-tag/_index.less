@@ -1,4 +1,5 @@
 .o-tag {
+    position: relative;
     display: inline-block;
     font-variant: tabular-nums;
     box-sizing: border-box;
@@ -12,4 +13,12 @@
     margin-right: 8px;
     cursor: pointer;
     white-space: nowrap;
+    &__close {
+        padding-right: 23px;
+    }
+
+    &__closeBtn{
+        position: absolute;
+        right: 3px;
+    }
 }

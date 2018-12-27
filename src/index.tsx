@@ -5,6 +5,7 @@ import './elements/o-checkbox-group';
 import './elements/o-input';
 import './elements/o-stepper';
 import './elements/o-select';
+import './elements/o-tag';
 
 interface AbcEvent extends Event {
     detail: {
@@ -83,6 +84,19 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
                         <o-option value="3">select3</o-option>
                         <o-option value="4">select4</o-option>
                     </o-select>
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                    <o-select multiple={false}>
+                        <o-option value="1">select1</o-option>
+                        <o-option value="2">select2</o-option>
+                        <o-option value="3">select3</o-option>
+                        <o-option value="4">select4</o-option>
+                    </o-select>
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                    <o-tag onclose={() => { console.log('fdd') }}>1234</o-tag>
                 </div>
 
                 <div class="test">
