@@ -6,6 +6,7 @@ import './elements/o-input';
 import './elements/o-stepper';
 import './elements/o-select';
 import './elements/o-tag';
+import './elements/o-upload';
 
 interface AbcEvent extends Event {
     detail: {
@@ -97,6 +98,12 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
 
                 <div style={{ marginTop: 10 }}>
                     <o-tag onclose={() => { console.log('fdd') }}>1234</o-tag>
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                    <o-upload>
+                        <o-button type="primary">上传插件</o-button>
+                    </o-upload>
                 </div>
 
                 <div class="test">

@@ -46,8 +46,10 @@ export default class oButton extends WeElement<IProps, {}> {
     }
 
     handleClick = (evt: Event) => {
-        this.props.onClick(evt);
-        evt.stopPropagation();
+        if (this.props.onClick) {
+            evt.stopPropagation();
+            this.props.onClick(evt);
+        }
     }
 
     render(props, data) {

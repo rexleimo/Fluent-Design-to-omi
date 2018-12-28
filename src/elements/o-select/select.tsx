@@ -106,8 +106,6 @@ export default class OSelect extends WeElement<IProps> {
                 })
             })
 
-            console.log(tags);
-
             return tags.map(item => {
                 return <o-tag key={item.key} onclose={this.handletagClose.bind(this, item.key)}>{item.vnode}</o-tag>
             });
