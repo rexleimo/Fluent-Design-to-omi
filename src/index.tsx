@@ -101,7 +101,7 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
                 </div>
 
                 <div style={{ marginTop: 10 }}>
-                    <o-upload>
+                    <o-upload serve='' multiple={true} onchange={(result) => { console.log(result) }}>
                         <o-button type="primary">上传插件</o-button>
                     </o-upload>
                 </div>
