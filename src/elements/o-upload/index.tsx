@@ -7,7 +7,11 @@ interface IProps {
     serve: string,
     multiple?: Boolean,
     data?: Object,
-    onchange?: Function
+    onchange?: Function,
+    onsuccess: Function,
+    name?: string,
+    onerror?: Function,
+    disabled?: Boolean
 }
 
 declare global {
@@ -48,18 +52,30 @@ export default class oUpload extends WeElement<IProps> {
 
     upload(file, postFiles) {
         const { props } = this;
-        let { data, serve, onchange } = props;
+        let { data, serve, onchange, name } = props;
 
         let playlod = new FormData();
-        playlod.append('file', file);
+
+        let fileName = name || 'file';
+        playlod.append(fileName, file);
+
+        if (data) {
+            Object.keys(data).forEach(v => {
+                playlod.append(v, data[v]);
+            })
+        }
+
 
         var header = { headers: { "Content-Type": "multipart/form-data" } };
 
         if (onchange) {
             return axios.post(serve, playlod, header)
                 .then(
-                    result => result
-                ).catch(result => result);
+                    result => {
+                        let rawData = result.data;
+                        this.props.onsuccess(rawData);
+                    }
+                ).catch(error => this.props.onerror(error));
         }
 
     }
@@ -72,6 +88,7 @@ export default class oUpload extends WeElement<IProps> {
                     ref={e => { this.input = e }}
                     onChange={this.handleChange.bind(this)}
                     multiple={props.multiple}
+                    disabled={props.disabled}
                 />
                 <div class="" onClick={this.handleOnClick.bind(this)}>
                     {props.children}

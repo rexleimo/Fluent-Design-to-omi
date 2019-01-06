@@ -49,6 +49,9 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
         this.data.checkbox = e.target.checked;
     }
 
+    handleFileSuccess(result) {
+        console.log(result);
+    }
 
     render(props, data) {
         return (
@@ -101,7 +104,14 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
                 </div>
 
                 <div style={{ marginTop: 10 }}>
-                    <o-upload serve='' multiple={true} onchange={(result) => { console.log(result) }}>
+                    <o-upload onsuccess={(result) => { this.handleFileSuccess(result) }}
+                        serve='http://localhost/tp51/public/'
+                        multiple={true}
+                        onchange={(result) => { console.log(result) }}
+                        data={{
+                            molei: "莫雷"
+                        }}
+                    >
                         <o-button type="primary">上传插件</o-button>
                     </o-upload>
                 </div>
