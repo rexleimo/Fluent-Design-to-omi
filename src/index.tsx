@@ -7,6 +7,7 @@ import './elements/o-stepper';
 import './elements/o-select';
 import './elements/o-tag';
 import './elements/o-upload';
+import './elements/o-radio';
 
 interface AbcEvent extends Event {
     detail: {
@@ -114,6 +115,12 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
                     >
                         <o-button type="primary">上传插件</o-button>
                     </o-upload>
+                </div>
+
+                <div style={{ marginTop: 10 }}>
+                    <o-radio>
+                        莫雷
+                    </o-radio>
                 </div>
 
                 <div class="test">

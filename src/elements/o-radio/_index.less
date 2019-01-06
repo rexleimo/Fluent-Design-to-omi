@@ -1,0 +1,48 @@
+.o-radio{
+    display: inline-block;
+    font-size: 0;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &__icon{
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(0, 0, 0, .8);
+        border-radius: 50%;
+        overflow: hidden;
+        transition: all .3s;
+        box-sizing: border-box;
+        vertical-align: middle;
+
+        &.checked{
+            border-color: #0078d4;
+        }
+
+        &_inner{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, .8);
+            transform: scale(0);
+            opacity: 1;
+            transition: all .3s;
+            &.checked{
+                opacity: 1;
+                transform: scale(.8);
+            }
+        }
+    }
+    &__txt{
+        margin-left: 8px;
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        user-select: none;
+    }
+}
