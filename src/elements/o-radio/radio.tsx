@@ -36,7 +36,9 @@ export default class Radio extends WeElement<IProps, {}> {
     install() {
         const { selected } = this.props;
         if (selected) {
-            this.data.selected = selected;
+            setTimeout(() => {
+                this.data.selected = selected;
+            }, 100)
         }
     }
 

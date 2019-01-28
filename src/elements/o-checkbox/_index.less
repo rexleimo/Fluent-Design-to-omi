@@ -3,10 +3,14 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: 8px;
+    user-select: none;
+    
+
     label {
         cursor: pointer;
     }
     .o-check__int {
+        transition: all .3s 0s ease-in-out;
         position: absolute;
         opacity: 0;
     }
@@ -19,6 +23,7 @@
         line-height: 25px;
         background-color: #fff;
         border: 1px solid #888888;
+        transition: all .3s 0s ease-in-out;
     }
     &__bd {
         display: inline-block;

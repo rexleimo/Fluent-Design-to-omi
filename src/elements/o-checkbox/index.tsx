@@ -33,7 +33,12 @@ export default class oCheckbox extends WeElement<IProps, {}> {
     }
 
     install() {
-        this.data.checked = this.props.checked || false;
+        this.data.checked = false;
+        if (this.props.checked) {
+            setTimeout(() => {
+                this.data.checked = this.props.checked;
+            }, 100);
+        }
     }
 
     css() {
