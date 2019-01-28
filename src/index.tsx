@@ -118,9 +118,23 @@ class MyApp extends WeElement<MyAppProps, MyAppData> {
                 </div>
 
                 <div style={{ marginTop: 10 }}>
-                    <o-radio>
+                    <o-radio value="莫雷">
                         莫雷
                     </o-radio>
+
+                    <o-radio-group onchange={(value) => { 
+                        
+                    }}>
+                        <o-radio value="我的天">
+                            我的天
+                        </o-radio>
+
+                        <o-radio value="我的地">
+                            我的天
+                        </o-radio>
+
+                    </o-radio-group>
+
                 </div>
 
                 <div class="test">

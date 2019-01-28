@@ -2,8 +2,25 @@ import { WeElement, render, h, getHost, tag } from 'omi';
 import classnames from 'classnames';
 import * as css from './_index.less';
 
+
+
+interface IProps {
+    value: String | Number,
+    onchange?: (e: String | Number) => void,
+    selected?: boolean
+}
+
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'o-radio': Omi.CustomElementBaseAttributes & IProps;
+        }
+    }
+}
+
+
 @tag('o-radio')
-export default class Radio extends WeElement {
+export default class Radio extends WeElement<IProps, {}> {
 
     static observe = true;
 
@@ -16,10 +33,22 @@ export default class Radio extends WeElement {
         return result == undefined ? css : getHost(this).css + css;
     }
 
-    handleOnSelected() {
+    install() {
+        const { selected } = this.props;
+        if (selected) {
+            this.data.selected = selected;
+        }
+    }
+
+
+    handleOnSelected(e: Event) {
+        e.stopPropagation();
         let { selected } = this.data;
         selected = !selected;
         this.data.selected = selected;
+        if (this.props.onchange) {
+            this.props.onchange(this.props.value);
+        }
     }
 
     render(props, data) {

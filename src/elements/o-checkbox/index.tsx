@@ -29,7 +29,7 @@ export default class oCheckbox extends WeElement<IProps, {}> {
     static observe = true;
 
     data = {
-        checked: false
+        checked: false,
     }
 
     install() {
