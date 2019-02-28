@@ -30,6 +30,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
-    "omi": "^5.0.16"
+    "omi": "^5.0.16",
+    "omi-router": "^2.0.8"
   }
 }

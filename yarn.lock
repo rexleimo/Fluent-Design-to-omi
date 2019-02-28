@@ -3353,6 +3353,13 @@ obuf@^1.0.0, obuf@^1.1.1:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
+omi-router@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/omi-router/-/omi-router-2.0.8.tgz#4f1d347b60df55a594268e4952d00fa3a8dacf63"
+  integrity sha512-IEh6+I+JPNCljS/FyyMh3RaOFYlkdscRgOZi5HQp/TlturanoLvGgO/zoJCHFYEmezb/Hd67+2FgAFE2gOw2QQ==
+  dependencies:
+    path-to-regexp latest
+
 omi@^5.0.16:
   version "5.0.16"
   resolved "https://registry.yarnpkg.com/omi/-/omi-5.0.16.tgz#05d6a52bcc3d7faa795dd4e2984cbec3fbb2fed8"
@@ -3554,6 +3561,11 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+
+path-to-regexp@latest:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-3.0.0.tgz#c981a218f3df543fa28696be2f88e0c58d2e012a"
+  integrity sha512-ZOtfhPttCrqp2M1PBBH4X13XlvnfhIwD7yCLx+GoGoXRPQyxGOTdQMpIzPSPKXAJT/JQrdfFrgdJOyAzvgpQ9A==
 
 pbkdf2@^3.0.3:
   version "3.0.17"
